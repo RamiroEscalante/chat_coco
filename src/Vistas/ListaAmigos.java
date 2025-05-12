@@ -107,9 +107,11 @@ public class ListaAmigos extends JFrame {
                 if (!e.getValueIsAdjusting()) {
                     int index = listaAmigos.getSelectedIndex();
                     if (index != -1) {
-                        String nombreSeleccionado = amigosServer.get(index)[1];
-                        int userFriendId = Integer.parseInt(amigosServer.get(index)[0]);
-                        int amigosId = Integer.parseInt(amigosServer.get(index)[2]);
+                        String nombreSeleccionado = amigosServer.get(index)[2];
+                        int userFriendId = Integer.parseInt(amigosServer.get(index)[1]);
+                        System.out.println("userFriendId = " + userFriendId);
+                        int amigosId = Integer.parseInt(amigosServer.get(index)[0]);
+                        System.out.println("amigosId = " + amigosId);
                         System.out.println("entra en value changed ");
                         System.out.println("userFriendId: " + userFriendId);
                         System.out.println("nombre seleccionado: " + nombreSeleccionado);
@@ -186,20 +188,22 @@ public class ListaAmigos extends JFrame {
      
         modeloLista.clear(); 
         if (amigosServer != null) {
+            System.out.println("Hola");
             for (String[] a : amigosServer) {
-                System.out.println("conexion: "+a[3]);
+                System.out.println("Hola2");
+                System.out.println("conexion: "+a[2]);
                 if(a[3].contains("0"))
                 {
-                    modeloLista.addElement(a[1]+" (desconectado)");
+                    modeloLista.addElement(a[2]+" (desconectado)");
                 }
                 else{
-                    modeloLista.addElement(a[1]+" (conectado)");
+                    modeloLista.addElement(a[2]+" (conectado)");
                 }
             }
         }
     }
     private void eliminarAmigo(int amigosId) {
-        
+        System.out.println("amigosId = " + amigosId);
         System.out.println("Amigo eliminado, el amigos Id es:  " + amigosId);
         AmigosController amigosController = new AmigosController();
         boolean res = amigosController.deleteAmigoServer(amigosId, ip);

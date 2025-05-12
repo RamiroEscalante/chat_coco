@@ -45,13 +45,13 @@ public class AmigosController{
     }
     
     // intento del server con selectMisamigosUsuarios
-    public ArrayList<String[]> selectMisAmigosByUserIdServer(int userId, String ip) {
+       public ArrayList<String[]> selectMisAmigosByUserIdServer(int userId, String ip) {
         // conexion al server, el server se encargara de realizar la consulta a la bd
         Socket socket;
         DataOutputStream out;
         BufferedReader in;
         try {
-            socket = new Socket(ip, 1234); // Usa la IP de tu servidor Axel: 192.168.100.76
+            socket = new Socket(ip, 1234); // Usa la IP de tu servidor 
             out = new DataOutputStream(socket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             
@@ -101,6 +101,7 @@ public class AmigosController{
             // se envia un string con el numero de la query a ejecutar en el server y los datos 
             // necesarios para la ejecucion de la query
             sql = "3:" + amigosId;
+            System.out.println("amigosId = " + amigosId);
             out.writeBytes(sql + "\n");
             out.flush();
             
@@ -125,7 +126,7 @@ public class AmigosController{
         DataOutputStream out;
         BufferedReader in;
         try {
-            socket = new Socket(ip, 1234); // Usa la IP de tu servidor Axel: 192.168.100.76
+            socket = new Socket(ip, 1234); // Usa la IP de tu servidor 
             out = new DataOutputStream(socket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             

@@ -45,6 +45,7 @@ public class ChatsController {
             return Integer.parseInt(resultado);
             
         } catch (IOException e) {
+            System.out.println("No jalo el mensaje");
             e.printStackTrace();
         }
         return -1;

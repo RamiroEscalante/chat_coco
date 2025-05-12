@@ -115,11 +115,13 @@ public class UsuarioController {
         
         // Recibir el resultado de la consulta del servidor
         String resultado = "0";
-         resultado = in.readLine();
+        resultado = in.readLine();
+        
         System.out.println(resultado);
         if(resultado.equals("0")){
             return 0;
         }else{
+            System.out.println(resultado);
             return Integer.parseInt(resultado);
         }
         

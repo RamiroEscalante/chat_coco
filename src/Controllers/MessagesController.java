@@ -37,6 +37,7 @@ public class MessagesController{
             out.writeBytes(sql + "\n");
             out.flush();
             
+            System.out.println("ChatId:" + chatId);
             // recibir el resultado de la consulta del server
             String resultado = "0";
             resultado = in.readLine();
